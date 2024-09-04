@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<h1>Welcome to home page</h1>
+
+<table>
+<tr>
+<td>Id</td>
+<td>Username</td>
+<td>Password</td>
+<td>Delete</td>
+</tr>
+<tr th:each="u:${userData}">
+<td th:text="${u.getId()}"></td>
+<td th:text="${u.getUsername()}"></td>
+<td th:text="${u.getPassword()}"></td>
+<td>
+<form action="delete" method="post">
+<input type="hidden" th:value="${u.getId()}" name="id">
+<input type="submit" value="Delete">
+</form>
+</td>
+</tr>
+</table>
+</body>
+</html>
