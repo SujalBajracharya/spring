@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Document</title>
+
+<!-- Theme style  -->
+<link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+    <div th:insert="adminNavbar"></div>
+	<style>
+	.image {
+	width: 100px; /* Set the width of the image */
+	height: 100px; /* Set the height of the image to make it a square */
+	object-fit: cover;
+	/* Ensure the image fills the square and is cropped if necessary */
+	border-radius: 5px; /* Optional: Add slight rounding to the corners */
+	display: block; /* Make sure the image behaves as a block element */
+	margin: auto; /* Optional: Center the image horizontally */
+	}
+</style>
+    
+	<h1>Welcome to inventory</h1>
+
+	<table>
+		<tr>
+			<td>Id</td>
+			<td>Image</td>
+			<td>SneakerName</td>
+			<td>Brand</td>
+			<td>Price</td>
+			<td>Released Date</td>
+			<td>Update</td>
+			<td>Delete</td>
+		</tr>
+		<tr th:each="s : ${shoeData}">
+			<td th:text="${s.id}"></td>
+			<!-- Image handling -->
+			<td><img class="image"
+				th:src="'data:image/jpeg;base64,' + ${s.image}" alt="Shoe Image" /></td>
+			<!-- Text fields -->
+			<td th:text="${s.shoeName}"></td>
+			<td th:text="${s.brand}"></td>
+			<td th:text="${s.price}"></td>
+			<td th:text="${s.year}"></td>
+			<td>
+				<form action="updateShoe" method="get">
+					<input type="hidden" th:value="${s.getId()}" name="id"> <input
+						type="submit" value="Update">
+				</form>
+			</td>
+			<td>
+				<form action="deleteShoe" method="post">
+					<input type="hidden" th:value="${s.getId()}" name="id"> <input
+						type="submit" value="Delete">
+				</form>
+			</td>
+		</tr>
+	</table>
+</body>
+
+</html>

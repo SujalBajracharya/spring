@@ -4,11 +4,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 import jakarta.persistence.CascadeType;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Lob;
 import jakarta.persistence.OneToMany;
 
 @Entity
@@ -17,20 +19,25 @@ public class ShoeData {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	
+	@Lob //Binary Large objects
+	@Column(columnDefinition = "MEDIUMBLOB")
+	private String image; // ASCII will be saved as image
+	
 	private String shoeName;
 	
 	private String brand;
 	
-	/* private int year; */
 
     @OneToMany(mappedBy = "shoeData", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<ShoeSize> sizes = new ArrayList<>();
 
 
-//    @OneToMany(mappedBy = "shoe", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-//    private List<Color> color;
-//
-//    private int price;
+    @OneToMany(mappedBy = "shoeData", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<ShoeColor> colors;
+
+    private int price;
+    
+    private String year;
 	
 	public int getId() {
 		return id;
@@ -60,27 +67,29 @@ public class ShoeData {
 		this.brand = brand;
 	}
 
-	
-//	public int getYear() {
-//		return year;
-//	}
-//	public void setYear(int year) {
-//		this.year = year;
-//	}
-//	
-//	public List<Color> getColor() {
-//		return color;
-//	}
-//	public void setColor(List<Color> color) {
-//		this.color = color;
-//	}
-//	public int getPrice() {
-//		return price;
-//	}
-//	public void setPrice(int price) {
-//		this.price = price;
-//	}
-	
-	
+	public int getPrice() {
+		return price;
+	}
+	public void setPrice(int price) {
+		this.price = price;
+	}
+	public List<ShoeColor> getColors() {
+		return colors;
+	}
+	public void setColors(List<ShoeColor> colors) {
+		this.colors = colors;
+	}
+	public String getYear() {
+		return year;
+	}
+	public void setYear(String year) {
+		this.year = year;
+	}
+	public String getImage() {
+		return image;
+	}
+	public void setImage(String image) {
+		this.image = image;
+	}
 	
 }

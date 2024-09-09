@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 
 <head>
 	<title>Sneakers Freak</title>
@@ -143,85 +143,29 @@
 			top: 231px;
 			right: 43px;
 		}
+
+		.imgInput {
+			position: absolute;
+			top: 231px;
+			right: 43px;
+		}
+		
+		.username{
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: large;
+            font-weight: 400;
+        }
+    
 	</style>
 </head>
 
 <body>
 	<div id="page">
-		<nav class="colorlib-nav">
-			<div class="top-menu">
-				<div class="container">
-					<div class="row">
-						<div class="col-sm-7 col-md-9">
-							<div id="colorlib-logo">
-								<a href="../index.jsp">Sneakers Freak</a>
-							</div>
-						</div>
-						<div class="col-sm-5 col-md-3">
-							<form action="#" class="search-wrap">
-								<div class="form-group">
-									<input type="search" class="form-control search" placeholder="Search">
-									<button class="btn btn-primary submit-search text-center" type="submit">
-										<i class="icon-search"></i>
-									</button>
-								</div>
-							</form>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-sm-12 text-left menu-1">
-							<ul>
-								<li><a href="../index.jsp">Home</a></li>
-								<li class="has-dropdown"><a href="men.jsp">Men</a>
-									<ul class="dropdown">
-										<li><a href="#">Product Detail</a></li>
-										<li><a href="#">Shopping Cart</a></li>
-										<li><a href="#">Checkout</a></li>
-										<li><a href="#">Order Complete</a></li>
-										<li><a href="#">Wishlist</a></li>
-									</ul>
-								</li>
-								<li><a href="#">Women</a></li>
-								<li><a href="about.jsp">About</a></li>
-								<li><a href="contact.jsp">Contact</a></li>
+		<!-- Admin Navigation Bar -->
+		<div th:insert="adminNavbar.html"></div>
 
-								<li class="cart">
-									<div class="col-sm-7 col-md-9">
-										<div id="btn">
-											<a href="login.jsp"><button class="btn-primary"
-													style="width: 226px; border-radius: 20px;">Log in</button></a>
-										</div>
-									</div>
-								</li>
-								<li class="cart"><a href="cart.jsp"><i class="icon-shopping-cart"></i> Cart [0]</a></li>
-							</ul>
-						</div>
-					</div>
-				</div>
-			</div>
-
-
-			<div class="sale">
-				<div class="container">
-					<div class="row">
-						<div class="col-sm-8 offset-sm-2 text-center">
-							<div class="row">
-								<div class="carousel2">
-									<div class="item">
-										<div class="col">
-											<h3>
-												<a href="#">25% off (Almost) Everything! Use Code:
-													Summer Sale</a>
-											</h3>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</nav>
+		<img src="https://imgs.search.brave.com/v9GscgePg_iBfjOfubbefIY8EF3M4J7UJkDr6Do_pVg/rs:fit:860:0:0:0/g:ce/aHR0cDovL3BuZ2lt/Zy5jb20vdXBsb2Fk/cy9mb290YmFsbF9i/b290cy9mb290YmFs/bF9ib290c19QTkc1/OS5wbmc"
+            alt="" class="shoe1" style="position: absolute;">
 
 		<div class="container box">
 			<div class="positioning">
@@ -231,19 +175,15 @@
 					Add
 					Shoe</p>
 
-				<form action="/admin" method="post" class="form" id="form">
-
+				<form action="/admin" method="post" class="form" id="form" enctype="multipart/form-data">
 
 					<div class="form1">
-						<label for="">Username</label> <input type="text" name="username" id="username"
-							placeholder="Username"> <small>Error
-							Message</small>
+						<label class="label">Image</label>
+						<input type="file" name="file" class="input-field" autocomplete="off"
+							style="width: 350px; display: block; padding: 5px 20px; margin-bottom: 10px;">
+						<div class="invalid-feedback"></div>
 					</div>
 
-
-					<!-- <p class="label">Image</p>
-					<input type="text" name="img" class="input-field" autocomplete="off"
-						style="width: 350px; display: block; padding: 5px 20px; margin-bottom: 10px;"> -->
 					<div class="form1">
 						<label class="label">Name</label>
 						<input type="text" name="shoeName" class="input-field" autocomplete="off"
@@ -277,23 +217,22 @@
 					<div class="invalid-feedback"></div>
 
 
-					<!-- <p class="label">Color</p>
-
+					<p class="label">Color</p>
 					<div class="form-check form-check-inline">
-						<input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="black"> <label
-							class="form-check-label" for="inlineCheckbox2">Black</label>
+						<input class="form-check-input" type="checkbox" id="inlineCheckbox2" name="color" value="black">
+						<label class="form-check-label" for="inlineCheckbox2">Black</label>
 					</div>
 					<div class="form-check form-check-inline">
-						<input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="red"> <label
-							class="form-check-label" for="inlineCheckbox2">Red</label>
+						<input class="form-check-input" type="checkbox" id="inlineCheckbox2" name="color" value="red">
+						<label class="form-check-label" for="inlineCheckbox2">Red</label>
 					</div>
 					<div class="form-check form-check-inline">
-						<input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="brown"> <label
-							class="form-check-label" for="inlineCheckbox2">Brown</label>
+						<input class="form-check-input" type="checkbox" id="inlineCheckbox2" name="color" value="brown">
+						<label class="form-check-label" for="inlineCheckbox2">Brown</label>
 					</div>
 					<div class="form-check form-check-inline">
-						<input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="white"> <label
-							class="form-check-label" for="inlineCheckbox2">White</label>
+						<input class="form-check-input" type="checkbox" id="inlineCheckbox2" name="color" value="white">
+						<label class="form-check-label" for="inlineCheckbox2">White</label>
 					</div>
 					<div class="invalid-feedback"></div>
 
@@ -305,16 +244,12 @@
 					<p class="label">Price</p>
 					<input type="text" name="price" class="input-field" autocomplete="off"
 						style="width: 350px; display: block; padding: 5px 20px; margin-bottom: 10px;">
-					<div class="invalid-feedback"></div> -->
+					<div class="invalid-feedback"></div>
 
 					<input type="checkbox" class="check-box">
 					<p class="box-text">Remember me.</p>
 
-					<input style="height: 43px;" type="submit" name="LOGIN" class="submit-btn" align="center"> <a
-						href="register.jsp">
-						<p class="r-label" align="left" style="text-decoration: none;">
-							Register Here</p>
-					</a>
+					<input style="height: 43px;" type="submit" name="LOGIN" class="submit-btn" align="center">
 
 				</form>
 			</div>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+
+<style>
+.image {
+	width: 500px; /* Set the width of the image */
+	height: 500px; /* Set the height of the image to make it a square */
+	object-fit: cover;
+	/* Ensure the image fills the square and is cropped if necessary */
+	border-radius: 5px; /* Optional: Add slight rounding to the corners */
+	display: block; /* Make sure the image behaves as a block element */
+	margin: auto; /* Optional: Center the image horizontally */
+}
+</style>
+
+<!-- Admin Navigation Bar -->
+<div th:insert="adminNavbar.html"></div>
+
+	<form action="updateShoe" method="post" enctype="multipart/form-data">
+		<!-- Use th:with to create a local variable for ShoeDetail -->
+		<div th:with="shoe = ${ShoeDetail}">
+		<!-- Shoe Image -->
+        <div>
+            <label>Shoe Image:</label>
+            <img th:src="'data:image/jpeg;base64,' + ${ShoeDetail.image}" class="image" />
+            <input type="file" name="image">
+        </div>
+
+        <!-- Shoe Name -->
+        <div>
+            <label>Shoe Name:</label>
+            <input type="text" name="shoeName" th:value="${ShoeDetail.shoeName}" />
+        </div>
+
+        <!-- Shoe Brand -->
+        <div>
+            <label>Brand:</label>
+            <input type="text" name="brand" th:value="${ShoeDetail.brand}" />
+        </div>
+
+        <!-- Shoe Sizes -->
+        <div>
+            <label>Sizes:</label>
+            <ul>
+                <li th:each="size : ${ShoeDetail.sizes}">
+                    <span th:text="${size.size}"></span>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Shoe Colors -->
+        <div>
+            <label>Colors:</label>
+            <ul>
+                <li th:each="color : ${ShoeDetail.colors}">
+                    <span th:text="${color.color}"></span>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Shoe Price -->
+        <div>
+            <label>Price:</label>
+            <input type="text" name="price" th:value="${ShoeDetail.price}" />
+        </div>
+
+        <!-- Shoe Year -->
+        <div>
+            <label>Year:</label>
+            <input type="text" name="year" th:value="${ShoeDetail.year}" />
+        </div>
+
+        <!-- Submit Button -->
+        <div>
+            <button type="submit">Update Shoe</button>
+        </div>
+
+		</div>
+	</form>
+</body>
+</html>
