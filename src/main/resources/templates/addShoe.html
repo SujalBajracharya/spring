@@ -162,7 +162,7 @@
 <body>
 	<div id="page">
 		<!-- Admin Navigation Bar -->
-		<div th:insert="adminNavbar.html"></div>
+		<div th:insert="components/adminNavbar.html"></div>
 
 		<img src="https://imgs.search.brave.com/v9GscgePg_iBfjOfubbefIY8EF3M4J7UJkDr6Do_pVg/rs:fit:860:0:0:0/g:ce/aHR0cDovL3BuZ2lt/Zy5jb20vdXBsb2Fk/cy9mb290YmFsbF9i/b290cy9mb290YmFs/bF9ib290c19QTkc1/OS5wbmc"
             alt="" class="shoe1" style="position: absolute;">
@@ -193,6 +193,12 @@
 
 					<p class="label">Brand</p>
 					<input type="text" name="brand" class="input-field" autocomplete="off"
+						style="width: 350px; display: block; padding: 5px 20px; margin-bottom: 10px;">
+					<div class="invalid-feedback"></div>
+
+
+					<p class="label">Description</p>
+					<input type="text" name="description" class="input-field" autocomplete="off"
 						style="width: 350px; display: block; padding: 5px 20px; margin-bottom: 10px;">
 					<div class="invalid-feedback"></div>
 
@@ -257,7 +263,7 @@
 
 
 		<!-- footer -->
-		<div th:insert="footer.html"></div>
+		<div th:insert="components/footer.html"></div>
 	</div>
 
 

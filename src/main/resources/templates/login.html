@@ -185,8 +185,10 @@
 </head>
 
 <body>
-    <div id="page">
-        <div th:insert="SimpleNavbar.html"></div>
+    
+    
+        <div th:insert="components/SimpleNavbar.html"></div>
+        
         <img src="https://img.freepik.com/premium-vector/realistic-sport-running-sneakers-training-fitness-white_164911-30.jpg?w=740"
             alt="" class="shoe1" style="position: absolute;">
 
@@ -230,9 +232,6 @@
             </div>
         </div>
 
-
-        <div th:insert="footer.html"></div>
-    </div>
 
 
 
@@ -339,6 +338,7 @@
     <!-- Main -->
     <script src="js/main.js"></script>
 
+	<div th:insert="components/footer.html"></div>
 
 </body>
 

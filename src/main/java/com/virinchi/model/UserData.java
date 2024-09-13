@@ -1,10 +1,13 @@
 package com.virinchi.model;
 
 
+import java.util.List;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 
 @Entity
 public class UserData {
@@ -17,6 +20,9 @@ public class UserData {
 	private String password;
 	
 	private String username;
+	
+	@OneToMany(mappedBy = "user")
+    private List<Cart> carts;
 
 	public int getId() {
 		return id;

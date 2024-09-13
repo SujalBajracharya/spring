@@ -27,6 +27,11 @@ public class ShoeData {
 	
 	private String brand;
 	
+	private String description;
+	
+	@OneToMany(mappedBy = "shoe")
+    private List<Cart> carts;
+	
 
     @OneToMany(mappedBy = "shoeData", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<ShoeSize> sizes = new ArrayList<>();
@@ -91,5 +96,18 @@ public class ShoeData {
 	public void setImage(String image) {
 		this.image = image;
 	}
+	public String getDescription() {
+		return description;
+	}
+	public void setDescription(String description) {
+		this.description = description;
+	}
+	public List<Cart> getCarts() {
+		return carts;
+	}
+	public void setCarts(List<Cart> carts) {
+		this.carts = carts;
+	}
+	
 	
 }

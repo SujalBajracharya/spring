@@ -2,38 +2,40 @@
 <html xmlns:th="http://www.thymeleaf.org">
 
 <head>
-	<title>Sneakers Freak</title>
-	<link rel="icon" type="image/x-icon" href="/images/379766373_1221297508514345_7529543329631078454_n_1_.ico">
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Sneakers Freak</title>
+<link rel="icon" type="image/x-icon"
+	href="/images/379766373_1221297508514345_7529543329631078454_n_1_.ico">
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 
-	<!-- Animate.css -->
-	<link rel="stylesheet" href="/css/animate.css">
-	<!-- Icomoon Icon Fonts-->
-	<link rel="stylesheet" href="/css/icomoon.css">
-	<!-- Ion Icon Fonts-->
-	<link rel="stylesheet" href="/css/ionicons.min.css">
-	<!-- Bootstrap  -->
-	<link rel="stylesheet" href="/css/bootstrap.min.css">
+<!-- Animate.css -->
+<link rel="stylesheet" href="/css/animate.css">
+<!-- Icomoon Icon Fonts-->
+<link rel="stylesheet" href="/css/icomoon.css">
+<!-- Ion Icon Fonts-->
+<link rel="stylesheet" href="/css/ionicons.min.css">
+<!-- Bootstrap  -->
+<link rel="stylesheet" href="/css/bootstrap.min.css">
 
-	<!-- Magnific Popup -->
-	<link rel="stylesheet" href="/css/magnific-popup.css">
+<!-- Magnific Popup -->
+<link rel="stylesheet" href="/css/magnific-popup.css">
 
-	<!-- Flexslider  -->
-	<link rel="stylesheet" href="/css/flexslider.css">
+<!-- Flexslider  -->
+<link rel="stylesheet" href="/css/flexslider.css">
 
-	<!-- Owl Carousel -->
-	<link rel="stylesheet" href="/css/owl.carousel.min.css">
-	<link rel="stylesheet" href="/css/owl.theme.default.min.css">
+<!-- Owl Carousel -->
+<link rel="stylesheet" href="/css/owl.carousel.min.css">
+<link rel="stylesheet" href="/css/owl.theme.default.min.css">
 
-	<!-- Date Picker -->
-	<link rel="stylesheet" href="/css/bootstrap-datepicker.css">
-	<!-- Flaticons  -->
-	<link rel="stylesheet" href="/fonts/flaticon/font/flaticon.css">
+<!-- Date Picker -->
+<link rel="stylesheet" href="/css/bootstrap-datepicker.css">
+<!-- Flaticons  -->
+<link rel="stylesheet" href="/fonts/flaticon/font/flaticon.css">
 
-	<!-- Theme style  -->
-	<link rel="stylesheet" href="/css/style.css">
+<!-- Theme style  -->
+<link rel="stylesheet" href="/css/style.css">
 
 </head>
 
@@ -44,6 +46,8 @@
 	<div id="page">
 		<!-- navbar -->
 		<div th:insert="components/navbar.html"></div>
+
+
 
 		<aside id="colorlib-hero">
 			<div class="flexslider">
@@ -96,7 +100,8 @@
 				<div class="row">
 					<div class="col-sm-6 text-center">
 						<div class="featured">
-							<a href="#" class="featured-img" style="background-image: url(images/men.jpg);"></a>
+							<a href="#" class="featured-img"
+								style="background-image: url(images/men.jpg);"></a>
 							<div class="desc">
 								<h2>
 									<a href="pages/men.jsp">Men</a>
@@ -106,7 +111,8 @@
 					</div>
 					<div class="col-sm-6 text-center">
 						<div class="featured">
-							<a href="#" class="featured-img" style="background-image: url(images/women.jpg);"></a>
+							<a href="#" class="featured-img"
+								style="background-image: url(images/women.jpg);"></a>
 							<div class="desc">
 								<h2>
 									<a href="#">Women</a>
@@ -140,45 +146,39 @@
 
 				<!-- Backend Filter -->
 				<form action="searchByPrice" method="post">
-					<label class="">Price</label>
-					
-					<label for="">min:-</label>
-					<input type="text" name="minPrice" id="minPrice">
-					<label for="">max:-</label>
-					<input type="text" name="maxPrice" id="maxPrice">
-					
-					<input type="submit" value="search">
+					<label class="">Price</label> <label for="">min:-</label> <input
+						type="text" name="minPrice" id="minPrice"> <label for="">max:-</label>
+					<input type="text" name="maxPrice" id="maxPrice"> <input
+						type="submit" value="search">
 				</form>
 
 				<hr>
 				<form action="searchByBrand" method="post">
 					<label class="">Brand</label>
-					
+
 					<div class="custom-control custom-radio">
-						<input type="radio" id="customRadio1" name="brand" class="custom-control-input" value="messi">
-						<label class="custom-control-label" for="customRadio1">messi</label>
+						<input type="radio" id="customRadio1" name="brand"
+							class="custom-control-input" value="messi"> <label
+							class="custom-control-label" for="customRadio1">messi</label>
 					</div>
 					<div class="custom-control custom-radio">
-						<input type="radio" id="customRadio2" name="brand" class="custom-control-input" value="nike">
-						<label class="custom-control-label" for="customRadio2">Nike</label>
+						<input type="radio" id="customRadio2" name="brand"
+							class="custom-control-input" value="nike"> <label
+							class="custom-control-label" for="customRadio2">Nike</label>
 					</div>
-					
+
 					<input type="submit" value="search">
 				</form>
 
 				<hr>
 				<form action="searchBySize" method="post">
-					<label for=""> Sizes </label>
-					
-					<input type="checkbox" name="size" id="size" value="9">
-					<label for="">9</label>
-					<input type="checkbox" name="size" id="size" value="10">
-					<label for="">10</label>
-					<input type="checkbox" name="size" id="size" value="11">
-					<label for="">11</label>
-					<input type="checkbox" name="size" id="size" value="12">
-					<label for="">12</label>
-					<input type="submit" value="search">
+					<label for=""> Sizes </label> <input type="checkbox" name="size"
+						id="size" value="9"> <label for="">9</label> <input
+						type="checkbox" name="size" id="size" value="10"> <label
+						for="">10</label> <input type="checkbox" name="size" id="size"
+						value="11"> <label for="">11</label> <input
+						type="checkbox" name="size" id="size" value="12"> <label
+						for="">12</label> <input type="submit" value="search">
 				</form>
 
 
@@ -186,8 +186,9 @@
 					<!-- show shoe from database -->
 					<div class="col-lg-3 mb-4 text-center" th:each="s : ${allShoeData}">
 						<div class="product-entry border">
-							<a href="" class="prod-img"> <img th:src="'data:image/jpeg;base64,' + ${s.image}"
-									class="img-fluid" alt="">
+							<a href="" class="prod-img"> <img
+								th:src="'data:image/jpeg;base64,' + ${s.image}"
+								class="img-fluid" alt="">
 							</a>
 							<div class="desc">
 								<h2>
@@ -199,13 +200,30 @@
 									<div th:text="${s.price}"></div>
 								</span>
 								<form action="productDetail" method="post">
-									<input type="text" th:value="${s.id}" style="visibility: hidden;" name="id">
-									<input type="submit" value="view">
+									<input type="text" th:value="${s.id}"
+										style="visibility: hidden;" name="id"> <input
+										type="submit" value="view">
 								</form>
 							</div>
 						</div>
 					</div>
 				</div>
+
+
+				<!-- Pagination controls -->
+				<div>
+					<span
+						th:text="'Page ' + ${currentPage + 1} + ' of ' + ${totalPages}"></span>
+
+					<div>
+						<a th:href="@{/home(page=${currentPage - 1})}"
+							th:if="${currentPage > 0}">Previous</a> <a
+							th:href="@{/home(page=${currentPage + 1})}"
+							th:if="${currentPage + 1 < totalPages}">Next</a>
+					</div>
+				</div>
+
+
 				<div class="row">
 					<div class="col-md-12 text-center">
 						<p>
@@ -218,7 +236,7 @@
 
 
 
-		<div th:insert="footer.html"></div>
+		<div th:insert="components/footer.html"></div>
 	</div>
 
 
